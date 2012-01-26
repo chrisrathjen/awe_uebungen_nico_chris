@@ -45,7 +45,7 @@ while trials_left > 0
   end
   
   if hangman_word == word
-    puts hangman_word + "is the word. You win"
+    puts hangman_word + " is the word. You win"
     exit
   end
 end
