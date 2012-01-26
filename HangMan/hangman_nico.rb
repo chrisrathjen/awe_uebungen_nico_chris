@@ -37,7 +37,7 @@ while trials_left > 0
     puts "Correct"
     puts hangman_word
   elsif trials_left-1 == 0
-    puts "Wrong, you loose"
+    puts "Wrong, you loose. The word was: " + word
     exit
   else
       trials_left = trials_left -1
