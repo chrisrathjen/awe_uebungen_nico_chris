@@ -15,30 +15,32 @@ class HangMan
 end
 
 hm = HangMan.new
-puts ""
+puts "Welcome to HangMan"
 while hm.currentWord != hm.currentDisplay  
   #STDOUT.sync = true
   STDIN.sync = true
   STDOUT.flush
+  puts "Please enter a Character"
   input = gets.chomp
   if input.length != 1
     input = input[0]
   end
-  if hm.currentWord.include? input.to_s
-    if hm.currentDisplay.include? input.to_s
-      puts "The Word already shows that latter"
+  
+  if hm.currentWord.include? input
+    if hm.currentDisplay.include? input
+      puts "The Word already shows that letter"
       hm.currentGuesses += 1
     else
       for i in 0...hm.currentWord.length
-        if hm.currentWord[i] == input.to_s
-          hm.currentDisplay[i] = input.to_s
+        if hm.currentWord[i] == input
+          hm.currentDisplay[i] = input
         end
       end
-      puts "Neue Version #{hm.currentDisplay}"
+      puts "Correct!\n#{hm.currentDisplay}"
     end
   else
     puts "Letter does not fit"
-    hm.alreadyTried = hm.alreadyTried + " " + input.to_s
+    hm.alreadyTried = hm.alreadyTried + " " + input
     puts hm.alreadyTried
     puts hm.currentDisplay
     hm.currentGuesses += 1
