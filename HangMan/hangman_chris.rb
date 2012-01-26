@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 class HangMan
-	attr_accessor :currentWord
+	attr_reader :currentWord
 	attr_accessor :currentGuesses
 	attr_accessor :currentDisplay 
 	attr_accessor :alreadyTried
@@ -15,11 +15,15 @@ class HangMan
 end
 
 hm = HangMan.new
+puts ""
 while hm.currentWord != hm.currentDisplay  
-  STDOUT.sync = true
+  #STDOUT.sync = true
   STDIN.sync = true
   STDOUT.flush
   input = gets.chomp
+  if input.length != 1
+    input = input[0]
+  end
   if hm.currentWord.include? input.to_s
     if hm.currentDisplay.include? input.to_s
       puts "The Word already shows that latter"
