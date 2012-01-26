@@ -12,15 +12,17 @@ end
 
 puts "We got a word for you: \n" + hangman_word
 
-trials_left = 5
+trials_left = 9
 false_trials = 0
 used_chars = "" #speichert die bereits eingegebenen Zeichen
 
 while trials_left > 0
   
-  
   puts "Enter a character:"
   user_char = gets
+  if user_char == "\n"
+    next
+  end
   user_char = user_char[0]
   
   if used_chars.include? user_char
