@@ -23,7 +23,7 @@ while trials_left > 0
   if user_char == "\n"
     next
   end
-  user_char = user_char[0]
+  user_char = user_char[0].downcase
   
   if used_chars.include? user_char
     puts "You allready used this one -> " + used_chars.chars.to_a.to_s
