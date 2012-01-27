@@ -1,9 +1,9 @@
-words = %w[universitaet awe bremen ruby rails mvc dry bachelor master informatik iphone android tablet nicolas christian]
+words = %w[universitaet awe bremen ruby rails mvc dry bachelor master informatik iphone android tablet nicolas christian xylophon gamejam computer php water bluetooth nfc wireless ram ssd]
 
 puts "Let's play hangman."
 puts ""
 
-word = words[rand(words.count)] #holt sich ein zufaelliges Wort aus dem words-Array
+word = words[rand(words.count+1)] #holt sich ein zufaelliges Wort aus dem words-Array
 
 hangman_word = "" 
 word.length.times do 
