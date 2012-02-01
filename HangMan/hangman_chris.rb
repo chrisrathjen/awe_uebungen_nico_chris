@@ -7,8 +7,7 @@ class HangMan
 	attr_accessor :alreadyTried
 	
 	def initialize()
-	  words = %w[universitaet awe bremen ruby rails mvc dry bachelor master informatik iphone android tablet nicolas christian]
-	  @currentWord = words[rand(words.count)] # random Word
+	  @currentWord = File.readlines("/usr/share/dict/words").sample.chomp.downcase # random Word
 	  @currentMistakes = 0 # number of mistakes
 	  @currentDisplay = "-" * currentWord.length # scrabled Word
 	  @alreadyTried = "You already tried: " # wrong guessed chars
