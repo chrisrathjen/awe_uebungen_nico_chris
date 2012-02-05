@@ -32,6 +32,7 @@ class MyTest < Test::Unit::TestCase
   
   def test_typecheck
     assert(!RomanNumberGenerator.new().convert_number_to_roman('a'), 'Argument is not a number')
+    assert(!RomanNumberGenerator.new().convert_number_to_roman(3.45), 'Argument is not an integer')
   end
   
   def test_check_output
