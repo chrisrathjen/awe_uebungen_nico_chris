@@ -2,7 +2,7 @@ class RomanNumberGenerator
   
   def convert_number_to_roman(num)
     return false if !(num.is_a? Integer)
-    return false if num <= 0 || num >= 4000
+    return false if num <= 0 || num >= 4000 #es gibt keine Zahlen kleiner 1 oder größer 3999
     
     roman_hash = { 1000 => "M", 900 => "CM", 500 => "D", 400 => "CD", 
                       100 => "C", 90 => "XC", 50 => "L", 40 => "XL", 
