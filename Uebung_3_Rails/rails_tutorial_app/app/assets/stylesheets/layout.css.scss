@@ -156,6 +156,15 @@ div.field, div.actions {
   }
 }
 
+/* Users Index Page */
+ul.users {
+  margin-top: 1em;
+  li {
+    list-style: none;
+  }
+}
+
+
 #error_explanation {
   width: 400px;
   border: 2px solid red;
