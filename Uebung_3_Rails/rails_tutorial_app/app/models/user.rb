@@ -31,9 +31,13 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: { with: valid_email_regex }, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
   
+  # def feed
+  #   # This is preliminary. See "Following users" for the full implementation.
+  #   Micropost.where("user_id = ?", id) # Das ? escaped das SQL statement und verhindert damit moegliche sql injections!
+  # end
+
   def feed
-    # This is preliminary. See "Following users" for the full implementation.
-    Micropost.where("user_id = ?", id) # Das ? escaped das SQL statement und verhindert damit moegliche sql injections!
+    Micropost.from_users_followed_by(self)
   end
 
   def following?(other_user)
