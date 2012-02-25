@@ -12,6 +12,7 @@ describe "User pages" do
       sign_in user
       visit users_path
     end
+    
 
     it { should have_selector('title', text: 'All users') }
 

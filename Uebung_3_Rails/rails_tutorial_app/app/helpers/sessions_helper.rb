@@ -21,6 +21,13 @@ module SessionsHelper
     user == current_user
   end
 
+  def signed_in_user
+    unless signed_in?
+      store_location
+      redirect_to signin_path, notice: "Please sign in." #notice is flash[:notice]
+    end
+  end
+
   def sign_out
     cookies.delete(:remember_token)
   end
@@ -36,12 +43,12 @@ module SessionsHelper
 
   private
 
-    def user_from_remember_token
-      remember_token = cookies[:remember_token]
-      User.find_by_remember_token(remember_token) unless remember_token.nil?
-    end
-    
-    def clear_return_to
-      session.delete(:return_to)
-    end
+  def user_from_remember_token
+    remember_token = cookies[:remember_token]
+    User.find_by_remember_token(remember_token) unless remember_token.nil?
+  end
+
+  def clear_return_to
+    session.delete(:return_to)
+  end
 end

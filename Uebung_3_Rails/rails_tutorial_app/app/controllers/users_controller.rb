@@ -50,12 +50,6 @@ class UsersController < ApplicationController
 
   private
 
-  def signed_in_user
-    unless signed_in?
-      store_location
-      redirect_to signin_path, notice: "Please sign in." #notice is flash[:notice]
-    end
-  end
 
   def correct_user
     @user = User.find(params[:id])
